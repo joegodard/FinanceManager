@@ -15,4 +15,6 @@ public interface IAccountsDB {
     ArrayList<Account> getAccounts();
 
     Account getAccountByID(int id);
+
+    int getNextID();
 }

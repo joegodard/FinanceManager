@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class FakeAccountsDB implements IAccountsDB{
 
     private ArrayList<Account> accountsList;
+    private static int nextID = 0;
 
     public FakeAccountsDB(){
         accountsList = new ArrayList<Account>();
@@ -15,6 +16,7 @@ public class FakeAccountsDB implements IAccountsDB{
     @Override
     public void addToAccounts(Account account) {
         accountsList.add(account);
+        nextID++;
     }
 
     @Override
@@ -35,5 +37,10 @@ public class FakeAccountsDB implements IAccountsDB{
     @Override
     public Account getAccountByID(int id) {
         return null;
+    }
+
+    @Override
+    public int getNextID() {
+        return nextID;
     }
 }

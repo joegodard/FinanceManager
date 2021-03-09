@@ -8,8 +8,8 @@ public class DBManager {
 
 
     public static void initialize(){
-        accountsDB.addToAccounts(new Account(1, "Staff Chequing", "Caisse", "Chequing", 2000));
-        accountsDB.addToAccounts(new Account(2, "Student Chequing", "RBC", "Chequing", 4000));
+        accountsDB.addToAccounts(new Account(accountsDB.getNextID(), "Staff Chequing", "Caisse", "Chequing", 2000));
+        accountsDB.addToAccounts(new Account(accountsDB.getNextID(), "Student Chequing", "RBC", "Chequing", 4000));
     }
 
     public static IAccountsDB getAccountsDB(){
