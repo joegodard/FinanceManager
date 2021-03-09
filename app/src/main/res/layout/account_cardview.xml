@@ -17,14 +17,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="100">
+            android:weightSum="100"
+            android:id="@+id/accountCardViewCollapsed">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtBankName"
                 android:text="Bank Name"
-                android:layout_weight="40"
+                android:layout_weight="35"
                 android:layout_margin="5dp"/>
 
             <TextView
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtAccountName"
                 android:text="Account Name"
-                android:layout_weight="40"
+                android:layout_weight="35"
                 android:layout_margin="5dp"/>
 
             <TextView
@@ -43,6 +44,51 @@
                 android:layout_weight="20"
                 android:layout_margin="5dp"/>
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/accountDownArrow"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_down_arrow"
+                android:layout_weight="10"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/accountUpArrow"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_up_arrow"
+                android:layout_weight="10"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/accountCardViewExpanded"
+            android:weightSum="100"
+            android:layout_below="@id/accountCardViewCollapsed"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAccountMoreInfo"
+                android:text="More Information"
+                android:layout_margin="5dp"
+                android:layout_weight="50"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAccountActivity"
+                android:text="Account Activity"
+                android:layout_margin="5dp"
+                android:layout_weight="50"/>
         </LinearLayout>
     </RelativeLayout>
 

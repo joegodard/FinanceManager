@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +36,33 @@ public class AccountRecViewAdapter extends RecyclerView.Adapter<AccountRecViewAd
         holder.bank.setText(accounts.get(position).getBank());
         holder.name.setText(accounts.get(position).getName());
         holder.balance.setText("$" + accounts.get(position).getBalance());
+
+        holder.downArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                accounts.get(position).setExpanded(true);
+                notifyItemChanged(position);
+            }
+        });
+
+        holder.upArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                accounts.get(position).setExpanded(false);
+                notifyItemChanged(position);
+            }
+        });
+
+        if(accounts.get(position).isExpanded()){
+            holder.expandedLayout.setVisibility(View.VISIBLE);
+            holder.downArrow.setVisibility(View.GONE);
+            holder.upArrow.setVisibility(View.VISIBLE);
+        }
+        else{
+            holder.expandedLayout.setVisibility(View.GONE);
+            holder.downArrow.setVisibility(View.VISIBLE);
+            holder.upArrow.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -48,6 +78,9 @@ public class AccountRecViewAdapter extends RecyclerView.Adapter<AccountRecViewAd
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView bank, name, balance;
+        private LinearLayout expandedLayout;
+        private ImageView downArrow, upArrow;
+        private Button btnMoreInfo, btnAccountActivity;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -56,6 +89,14 @@ public class AccountRecViewAdapter extends RecyclerView.Adapter<AccountRecViewAd
             bank = itemView.findViewById(R.id.txtBankName);
             name = itemView.findViewById(R.id.txtAccountName);
             balance = itemView.findViewById(R.id.txtAccountBalance);
+
+            expandedLayout = itemView.findViewById(R.id.accountCardViewExpanded);
+
+            downArrow = itemView.findViewById(R.id.accountDownArrow);
+            upArrow = itemView.findViewById(R.id.accountUpArrow);
+
+            btnMoreInfo = itemView.findViewById(R.id.btnAccountMoreInfo);
+            btnAccountActivity = itemView.findViewById(R.id.btnAccountActivity);
         }
     }
 }
