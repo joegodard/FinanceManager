@@ -8,12 +8,15 @@ public class Account {
     private String type;
     private int balance;
 
+    private boolean isExpanded;
+
     public Account(int accountID, String name, String bank, String type, int balance) {
         this.accountID = accountID;
         this.name = name;
         this.bank = bank;
         this.type = type;
         this.balance = balance;
+        isExpanded = false;
     }
 
     public int getAccountID() {
@@ -55,4 +58,8 @@ public class Account {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
+    public boolean isExpanded(){return isExpanded;}
+
+    public void setExpanded(boolean isExpanded){this.isExpanded = isExpanded;}
 }
