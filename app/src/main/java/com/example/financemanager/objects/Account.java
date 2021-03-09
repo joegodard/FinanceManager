@@ -6,11 +6,11 @@ public class Account {
     private String name;
     private String bank;
     private String type;
-    private int balance;
+    private double balance;
 
     private boolean isExpanded;
 
-    public Account(int accountID, String name, String bank, String type, int balance) {
+    public Account(int accountID, String name, String bank, String type, double balance) {
         this.accountID = accountID;
         this.name = name;
         this.bank = bank;
@@ -51,11 +51,11 @@ public class Account {
         this.type = type;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
