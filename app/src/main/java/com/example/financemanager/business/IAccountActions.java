@@ -11,4 +11,6 @@ public interface IAccountActions {
     void removeAccount(Account account);
 
     Account getAccount(int position);
+
+    Account getAccountByID(int id);
 }
