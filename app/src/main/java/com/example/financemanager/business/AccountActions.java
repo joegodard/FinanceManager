@@ -12,7 +12,7 @@ public class AccountActions implements IAccountActions {
 
     @Override
     public void updateAccount(Account account) {
-
+        DBManager.getAccountsDB().updateAccount(account);
     }
 
     @Override
@@ -23,5 +23,10 @@ public class AccountActions implements IAccountActions {
     @Override
     public Account getAccount(int position) {
         return DBManager.getAccountsDB().getAccounts().get(position);
+    }
+
+    @Override
+    public Account getAccountByID(int id) {
+        return DBManager.getAccountsDB().getAccountByID(id);
     }
 }

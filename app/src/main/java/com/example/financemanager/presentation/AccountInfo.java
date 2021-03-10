@@ -18,15 +18,15 @@ public class AccountInfo extends AppCompatActivity {
     IAccountActions accountActions = new AccountActions();
 
     private TextView txtBank, txtName, txtType, txtBalance;
-    private Button btnBackToSummary;
+    private Button btnBackToSummary, btnEditAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_info);
 
         Intent intent = getIntent();
-        int itemPosition = intent.getIntExtra("Position", -1);
-        Account account = accountActions.getAccount(itemPosition);
+        int itemID = intent.getIntExtra("id", -1);
+        Account account = accountActions.getAccountByID(itemID);
 
         initViews();
         setData(account);
@@ -35,6 +35,15 @@ public class AccountInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AccountInfo.this, AccountSummary.class);
+                startActivity(intent);
+            }
+        });
+
+        btnEditAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AccountInfo.this, EditAccount.class);
+                intent.putExtra("id", account.getAccountID());
                 startActivity(intent);
             }
         });
@@ -47,6 +56,7 @@ public class AccountInfo extends AppCompatActivity {
         txtBalance = findViewById(R.id.txtAccountBalance);
 
         btnBackToSummary = findViewById(R.id.btnBackToSummary);
+        btnEditAccount = findViewById(R.id.btnEditAccount);
     }
 
     private void setData(Account account){

@@ -58,7 +58,7 @@ public class AccountRecViewAdapter extends RecyclerView.Adapter<AccountRecViewAd
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, AccountInfo.class);
-                intent.putExtra("Position", position);
+                intent.putExtra("id", accounts.get(position).getAccountID());
                 mContext.startActivity(intent);
             }
         });

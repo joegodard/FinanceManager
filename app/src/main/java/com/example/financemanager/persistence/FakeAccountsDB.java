@@ -26,7 +26,11 @@ public class FakeAccountsDB implements IAccountsDB{
 
     @Override
     public void updateAccount(Account account) {
-
+        Account oldAccount = getAccountByID(account.getAccountID());
+        oldAccount.setBalance(account.getBalance());
+        oldAccount.setBank(account.getBank());
+        oldAccount.setName(account.getName());
+        oldAccount.setType(account.getType());
     }
 
     @Override
@@ -36,7 +40,12 @@ public class FakeAccountsDB implements IAccountsDB{
 
     @Override
     public Account getAccountByID(int id) {
-        return null;
+        Account account = null;
+        for (Account x:accountsList) {
+            if(x.getAccountID() == id)
+                account = x;
+        }
+        return account;
     }
 
     @Override
