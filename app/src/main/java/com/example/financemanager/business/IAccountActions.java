@@ -9,4 +9,6 @@ public interface IAccountActions {
     void updateAccount(Account account);
 
     void removeAccount(Account account);
+
+    Account getAccount(int position);
 }
