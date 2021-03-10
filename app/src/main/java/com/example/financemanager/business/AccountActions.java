@@ -19,4 +19,9 @@ public class AccountActions implements IAccountActions {
     public void removeAccount(Account account) {
 
     }
+
+    @Override
+    public Account getAccount(int position) {
+        return DBManager.getAccountsDB().getAccounts().get(position);
+    }
 }
