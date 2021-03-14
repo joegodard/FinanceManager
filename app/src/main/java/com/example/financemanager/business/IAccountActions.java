@@ -2,6 +2,8 @@ package com.example.financemanager.business;
 
 import com.example.financemanager.objects.Account;
 
+import java.util.ArrayList;
+
 public interface IAccountActions {
 
     void addToAccounts(Account account);
@@ -11,6 +13,8 @@ public interface IAccountActions {
     void removeAccount(Account account);
 
     Account getAccount(int position);
+
+    ArrayList<Account> getAccounts();
 
     Account getAccountByID(int id);
 }
