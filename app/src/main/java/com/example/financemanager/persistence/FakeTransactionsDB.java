@@ -49,7 +49,12 @@ public class FakeTransactionsDB implements ITransactionsDB{
 
     @Override
     public Transaction getTransactionByID(int id) {
-        return null;
+        Transaction transaction = null;
+        for (Transaction x:getAllTransactions()) {
+            if(x.getTransactionID() == id)
+                transaction = x;
+        }
+        return transaction;
     }
 
     @Override

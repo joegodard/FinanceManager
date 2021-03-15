@@ -34,6 +34,11 @@ public class TransactionActions implements ITransactionActions{
     }
 
     @Override
+    public Transaction getTransactionByID(int id) {
+        return DBManager.getTransactionsDB().getTransactionByID(id);
+    }
+
+    @Override
     public ArrayList<Transaction> getAccountTransactions(Account account) {
         return DBManager.getTransactionsDB().getAccountTransactions(account);
     }

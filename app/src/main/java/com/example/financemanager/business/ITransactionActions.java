@@ -18,6 +18,8 @@ public interface ITransactionActions {
 
     ArrayList<Transaction> getTransactions();
 
+    Transaction getTransactionByID(int id);
+
     ArrayList<Transaction> getAccountTransactions(Account account);
 
     Account getAccountByID(int id);

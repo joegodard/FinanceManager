@@ -38,7 +38,6 @@ public class ViewTransactions extends AppCompatActivity {
         setContentView(R.layout.activity_view_transactions);
 
         transactionsRecView = findViewById(R.id.transactionsRecView);
-        adapter = new TransactionRecViewAdapter(this);
         btnAddTransaction = findViewById(R.id.btnAddTransaction);
         btnToAccount = findViewById(R.id.btnToAccounts);
 
@@ -47,6 +46,8 @@ public class ViewTransactions extends AppCompatActivity {
         Intent intent = getIntent();
         int accountID = intent.getIntExtra("id", -1);
         String origin = intent.getStringExtra("Origin");
+
+        adapter = new TransactionRecViewAdapter(this, origin, accountID);
 
         ArrayList<Transaction> transactions;
         Account account = null;
