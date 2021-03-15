@@ -1,6 +1,7 @@
 package com.example.financemanager.presentation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,13 @@ public class TransactionRecViewAdapter extends RecyclerView.Adapter<TransactionR
 
     private ArrayList<Transaction> transactions = new ArrayList<>();
     private Context mContext;
+    private String origin;
+    private int accountID;
 
-    public TransactionRecViewAdapter(Context mContext){
+    public TransactionRecViewAdapter(Context mContext, String origin, int accountID){
         this.mContext = mContext;
+        this.origin = origin;
+        this.accountID = accountID;
     }
 
     @NonNull
@@ -45,7 +50,11 @@ public class TransactionRecViewAdapter extends RecyclerView.Adapter<TransactionR
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(mContext, TransactionInfo.class);
+                intent.putExtra("AccountID", accountID);
+                intent.putExtra("Origin", origin);
+                intent.putExtra("TransactionID", transactions.get(position).getTransactionID());
+                mContext.startActivity(intent);
             }
         });
     }
