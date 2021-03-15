@@ -31,6 +31,8 @@ public class FakeTransactionsDB implements ITransactionsDB{
 
     }
 
+
+
     @Override
     public ArrayList<Transaction> getAllTransactions() {
         return transactionsList;

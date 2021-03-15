@@ -1,6 +1,7 @@
 package com.example.financemanager.business;
 
 import com.example.financemanager.objects.Account;
+import com.example.financemanager.objects.Transaction;
 import com.example.financemanager.persistence.DBManager;
 
 import java.lang.reflect.Array;
@@ -21,6 +22,11 @@ public class AccountActions implements IAccountActions {
     @Override
     public void removeAccount(Account account) {
 
+    }
+
+    @Override
+    public void updateAccountBalance(Account account, double change) {
+        DBManager.getAccountsDB().updateAccountBalance(account, change);
     }
 
     @Override
