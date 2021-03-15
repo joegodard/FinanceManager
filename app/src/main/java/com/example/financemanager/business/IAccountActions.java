@@ -17,4 +17,8 @@ public interface IAccountActions {
     ArrayList<Account> getAccounts();
 
     Account getAccountByID(int id);
+
+    Account getAccountByName(String name);
+
+    ArrayList<String> getAccountNames();
 }

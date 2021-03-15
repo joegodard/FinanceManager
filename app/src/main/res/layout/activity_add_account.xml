@@ -124,7 +124,7 @@
         android:ems="10"
         android:maxLength="9"
         android:hint="Account Balance"
-        android:inputType="numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintTop_toTopOf="@id/textView4"
         app:layout_constraintBottom_toBottomOf="@id/textView4"/>

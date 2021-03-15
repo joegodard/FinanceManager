@@ -16,5 +16,7 @@ public interface IAccountsDB {
 
     Account getAccountByID(int id);
 
+    Account getAccountByName(String name);
+
     int getNextID();
 }

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,6 +60,17 @@ public class AccountRecViewAdapter extends RecyclerView.Adapter<AccountRecViewAd
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, AccountInfo.class);
                 intent.putExtra("id", accounts.get(position).getAccountID());
+                intent.putExtra("Origin", "All");
+                mContext.startActivity(intent);
+            }
+        });
+
+        holder.btnAccountActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ViewTransactions.class);
+                intent.putExtra("id", accounts.get(position).getAccountID());
+                intent.putExtra("Origin", "All");
                 mContext.startActivity(intent);
             }
         });

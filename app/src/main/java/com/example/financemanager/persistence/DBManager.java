@@ -11,8 +11,8 @@ public class DBManager {
 
     public static void initialize(){
         Account account1 = new Account(accountsDB.getNextID(), "Staff Chequing", "Caisse", "Chequing", 2000);
-        Account account2 = new Account(accountsDB.getNextID(), "Student Chequing", "RBC", "Chequing", 4000);
         accountsDB.addToAccounts(account1);
+        Account account2 = new Account(accountsDB.getNextID(), "Student Chequing", "RBC", "Chequing", 4000);
         accountsDB.addToAccounts(account2);
 
         transactionsDB.addToTransactions(new Transaction(transactionsDB.getNextID(), "02/02/21", account1, "Tims", -5.50));

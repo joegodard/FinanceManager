@@ -49,6 +49,16 @@ public class FakeAccountsDB implements IAccountsDB{
     }
 
     @Override
+    public Account getAccountByName(String name) {
+        Account account = null;
+        for (Account x:accountsList) {
+            if(x.getName().equals(name))
+                account = x;
+        }
+        return account;
+    }
+
+    @Override
     public int getNextID() {
         return nextID;
     }

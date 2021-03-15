@@ -15,7 +15,9 @@
         android:layout_marginTop="32dp"
         android:text="Transaction View"
         android:textSize="36sp"
-        android:id="@+id/txtViewTransactionsTitle"/>
+        android:textAlignment="center"
+        android:id="@+id/txtViewTransactionsTitle"
+        android:gravity="center_horizontal" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactionsRecView"
