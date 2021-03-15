@@ -48,7 +48,11 @@ public class TransactionInfo extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(TransactionInfo.this, EditTransaction.class);
+                intent.putExtra("TransactionID", transactionID);
+                intent.putExtra("AccountID", accountID);
+                intent.putExtra("Origin", origin);
+                startActivity(intent);
             }
         });
     }

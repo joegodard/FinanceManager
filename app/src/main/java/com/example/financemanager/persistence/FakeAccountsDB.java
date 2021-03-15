@@ -1,6 +1,7 @@
 package com.example.financemanager.persistence;
 
 import com.example.financemanager.objects.Account;
+import com.example.financemanager.objects.Transaction;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,11 @@ public class FakeAccountsDB implements IAccountsDB{
     @Override
     public Account removeFromAccounts(Account account) {
         return null;
+    }
+
+    @Override
+    public void updateAccountBalance(Account account, double change) {
+        account.setBalance(account.getBalance()+change);
     }
 
     @Override

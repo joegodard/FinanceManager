@@ -11,6 +11,7 @@ public class TransactionActions implements ITransactionActions{
     public void addToTransactions(Transaction transaction) {
         transaction.setTransactionID(DBManager.getTransactionsDB().getNextID());
         DBManager.getTransactionsDB().addToTransactions(transaction);
+        DBManager.getAccountsDB().updateAccountBalance(transaction.getAccount(), transaction.getAmount());
     }
 
     @Override
