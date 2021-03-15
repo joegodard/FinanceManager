@@ -3,6 +3,7 @@ package com.example.financemanager.business;
 import com.example.financemanager.objects.Account;
 import com.example.financemanager.persistence.DBManager;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AccountActions implements IAccountActions {
@@ -36,4 +37,21 @@ public class AccountActions implements IAccountActions {
     public Account getAccountByID(int id) {
         return DBManager.getAccountsDB().getAccountByID(id);
     }
+
+    @Override
+    public Account getAccountByName(String name) {
+        return DBManager.getAccountsDB().getAccountByName(name);
+    }
+
+    @Override
+    public ArrayList<String> getAccountNames() {
+        ArrayList<Account> accounts = DBManager.getAccountsDB().getAccounts();
+        ArrayList<String> names = new ArrayList<>();
+        for (Account x:accounts) {
+            names.add(x.getName());
+        }
+        return names;
+    }
+
+
 }

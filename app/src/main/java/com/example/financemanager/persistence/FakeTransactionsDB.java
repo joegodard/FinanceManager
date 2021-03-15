@@ -3,6 +3,7 @@ package com.example.financemanager.persistence;
 import com.example.financemanager.objects.Account;
 import com.example.financemanager.objects.Transaction;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FakeTransactionsDB implements ITransactionsDB{
@@ -37,7 +38,13 @@ public class FakeTransactionsDB implements ITransactionsDB{
 
     @Override
     public ArrayList<Transaction> getAccountTransactions(Account account) {
-        return null;
+        ArrayList<Transaction> allTransactions = getAllTransactions();
+        ArrayList<Transaction> accountTransactions = new ArrayList<>();
+        for (Transaction x:allTransactions) {
+            if(x.getAccount().equals(account))
+                accountTransactions.add(x);
+        }
+        return accountTransactions;
     }
 
     @Override

@@ -46,7 +46,7 @@ public class AccountSummary extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AccountSummary.this, ViewTransactions.class);
-                intent.putExtra("Account", "All");
+                intent.putExtra("id", -1);
                 intent.putExtra("Origin", "All");
                 startActivity(intent);
             }

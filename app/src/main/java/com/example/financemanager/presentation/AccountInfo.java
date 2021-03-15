@@ -18,7 +18,7 @@ public class AccountInfo extends AppCompatActivity {
     IAccountActions accountActions = new AccountActions();
 
     private TextView txtBank, txtName, txtType, txtBalance;
-    private Button btnBackToSummary, btnEditAccount;
+    private Button btnBackToSummary, btnEditAccount, btnAccountActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,15 @@ public class AccountInfo extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnAccountActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AccountInfo.this, ViewTransactions.class);
+                intent.putExtra("id", account.getAccountID());
+                startActivity(intent);
+            }
+        });
     }
 
     private void initViews(){
@@ -57,6 +66,7 @@ public class AccountInfo extends AppCompatActivity {
 
         btnBackToSummary = findViewById(R.id.btnBackToSummary);
         btnEditAccount = findViewById(R.id.btnEditAccount);
+        btnAccountActivity = findViewById(R.id.btnAccountActivity);
     }
 
     private void setData(Account account){

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceManager">
-        <activity android:name=".presentation.ViewTransactions"></activity>
+        <activity android:name=".presentation.AddTransaction"></activity>
+        <activity android:name=".presentation.ViewTransactions" />
         <activity android:name=".presentation.EditAccount" />
         <activity android:name=".presentation.AccountInfo" />
         <activity android:name=".presentation.AddAccount" />
